@@ -1,0 +1,70 @@
+{
+  "name": "community",
+  "version": "1.0.0",
+  "description": "Community",
+  "main": "main.js",
+  "homepage": "",
+  "build": {
+    "appId": "com.example.gwt",
+    "productName": "Community",
+    "asar": true,
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "favicon.icns"
+    },
+    "dmg": {
+      "title": "Community",
+      "icon": "favicon.png"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "icon": "./favicon.ico"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage",
+        "tar.gz"
+      ],
+      "icon": "favicon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "favicon.ico",
+      "uninstallerIcon": "favicon.ico",
+      "installerHeaderIcon": "favicon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist-win": "electron-builder --win --x64",
+    "dist-linux": "electron-builder --linux --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "main"
+  },
+  "keywords": [
+    "electron",
+    "angular"
+  ],
+  "author": "gwt",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
