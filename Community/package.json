@@ -1,12 +1,12 @@
 {
-  "name": "community",
+  "name": "ess",
   "version": "1.0.0",
-  "description": "Community",
+  "description": "ESS",
   "main": "main.js",
   "homepage": "",
   "build": {
-    "appId": "com.example.gwt",
-    "productName": "Community",
+    "appId": "com.ess.gwt",
+    "productName": "ESS",
     "asar": true,
     "directories": {
       "buildResources": "build",
@@ -21,13 +21,12 @@
       "icon": "favicon.icns"
     },
     "dmg": {
-      "title": "Community",
+      "title": "ESS",
       "icon": "favicon.png"
     },
     "win": {
       "target": [
-        "nsis",
-        "zip"
+        "nsis"
       ],
       "icon": "./favicon.ico"
     },
