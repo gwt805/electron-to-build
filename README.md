@@ -1,5 +1,5 @@
 <div align='center'>
-    <img src='./favicon.png' width="32px">
+    <img src='./Community/favicon.png' width="32px">
 </div>
 
 # 已有功能
