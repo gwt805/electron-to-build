@@ -33,8 +33,7 @@
     "linux": {
       "target": [
         "deb",
-        "AppImage",
-        "tar.gz"
+        "AppImage"
       ],
       "icon": "favicon.png"
     },
