@@ -2,9 +2,21 @@
     <img src='./Community/favicon.png' width="32px">
 </div>
 
+
 # 已有功能
-- 点击关闭，提示退出，还是缩小至托盘
+- 点击关闭 直接 缩小至托盘
 - 托盘菜单：退出，显示
+- 网络断开/连接 后 消息通知
+- 打开开发者工具: Ctrl + Shift + I
+- 刷新: F5
+
+
+# 环境
+```JSON
+"electron": "^23.1.2",
+"electron-builder": "^23.6.0",
+"qiao-is-online": "^1.0.6"
+```
 
 
 # 注意事项
@@ -23,8 +35,11 @@
       | ----------- | ----------- | --------- |
       | .ico        | .icns       |.png       |
 
+- 特别注意的是 各个平台的 icon/icns/png 都必须是 256x256 像素
 - main.js
-    - tray.setToolTip('xxx') 这里要修改成 你想要的提示，即鼠表放在任务栏图标上的提示，不过好像没生效？具体可实验，生效的可能是 package.json 中的 description
+    - 修改 URL 参数; 即服务访问地址
+
+    - 修改 Tip_Tit 参数; 即鼠表放在任务栏图标上的提示，需和 packag.json 中的 description 内容一致
 
 - package.json
     - name: 即 APP 的名字
@@ -33,7 +48,7 @@
 
     - description: 即 打包后鼠标放在任务栏图标上显示的文字
 
-    - 打包时，需要将 dependencies 中的内容清空
+    - 打包时，需要将 dependencies 中的内容清空, 仅保留 `qiao-is-online`
 
     - Linux 打包时，需要对 author 中gwt 后面添加 邮箱：Inc <xxx@xx.com>
 
@@ -55,7 +70,6 @@
         - export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
     - 安装依赖
         - npm install
-    - 修改 main.js 中的 mainWindow.loadURL 参数 (line:20)
     - 开始打包
         - windows
             - npm run dist-win
