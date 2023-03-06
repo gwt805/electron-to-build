@@ -16,6 +16,7 @@
 "electron": "^23.1.2",
 "electron-builder": "^23.6.0",
 "qiao-is-online": "^1.0.6"
+"electron-localshortcut": "^3.2.1",
 ```
 
 
@@ -48,7 +49,7 @@
 
     - description: 即 打包后鼠标放在任务栏图标上显示的文字
 
-    - 打包时，需要将 dependencies 中的内容清空, 仅保留 `qiao-is-online`
+    - 打包时，需要将 dependencies 中的内容清空, 仅保留 `qiao-is-online` 和 `electron-localshortcut`
 
     - Linux 打包时，需要对 author 中gwt 后面添加 邮箱：Inc <xxx@xx.com>
 
@@ -64,6 +65,8 @@
     - export ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/
     - npm install -S electron
     - npm install -S electron-builder
+    - npm install -S qiao-is-online
+    - npm install -S electron-localshortcut
   
 - 打开终端
     - 设置 electron 的镜像

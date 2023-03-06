@@ -64,6 +64,7 @@
   "author": "gwt",
   "license": "ISC",
   "dependencies": {
+    "electron-localshortcut": "^3.2.1",
     "qiao-is-online": "^1.0.6"
   }
 }

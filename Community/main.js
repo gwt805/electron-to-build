@@ -1,4 +1,5 @@
-const { app, BrowserWindow, Menu, Tray, Notification, globalShortcut } = require('electron');
+const { app, BrowserWindow, Menu, Tray, Notification } = require('electron');
+const electronLocalshortcut = require('electron-localshortcut');
 const qIsOnline = require('qiao-is-online');
 const path = require("path");
 
@@ -38,14 +39,14 @@ function createWindow() {
         e.preventDefault();
         mainWindow.hide();
     })
+    electronLocalshortcut.register(mainWindow,'Ctrl+Shift+I', () => { mainWindow.webContents.openDevTools(); });
+    electronLocalshortcut.register(mainWindow,'F5', () => { mainWindow.reload() });
 }
 
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) { app.exit() }
 else {
     app.on('ready',() => {
-        globalShortcut.register('Ctrl+Shift+I', () => { mainWindow.webContents.openDevTools(); });
-        globalShortcut.register('F5', () => { mainWindow.reload() });
         createWindow();
     })
     app.on('activate', () => {
@@ -59,5 +60,8 @@ else {
         ]);
         tray.setToolTip(Tip_Tit);
         tray.setContextMenu(contextMenu);
+        tray.on('click', () => {
+            mainWindow.show()
+        })
     }).then(() => { cron = setInterval(netDect, 1000);})
 }
