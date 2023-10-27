@@ -5,8 +5,8 @@ const path = require("path");
 
 let tray, mainWindow, cron
 let cron_flag = true
-const URL = ""
-const Tip_Tit = ""
+const URL = "/";
+const Tip_Tit = "ESS";
 
 const netDect = async () => {
     const isOnline = await qIsOnline.isOnline();
@@ -14,7 +14,7 @@ const netDect = async () => {
         title: Tip_Tit + " 网络提示",
         body_successful: "您的网络已经断开!",
         body_error: "您的网络已连接!",
-        icon: './favicon.png'
+        icon: './favicon.ico'
    };
     if (isOnline == "online" && cron_flag == false) {
         cron_flag = true;
@@ -31,7 +31,7 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         webPreferences: { nodeIntegrationInWorker: true },
         fullscreen: false, // 全屏模式
-        icon: path.join(__dirname, 'favicon.png')
+        icon: path.join(__dirname, 'favicon.ico')
     })
     mainWindow.loadURL(URL) // 装载的URL地址
     mainWindow.maximize(); // 打开时最大化
@@ -53,7 +53,7 @@ else {
         if (mainWindow === null) { createWindow() }
     })
     app.whenReady().then(() => {
-        tray = new Tray(path.join(__dirname, 'favicon.png'))
+        tray = new Tray(path.join(__dirname, 'favicon.ico'))
         const contextMenu = Menu.buildFromTemplate([
             { label: '显示', click: () => { mainWindow.show() } },
             { label: '退出', click: () => { clearInterval(cron); app.exit() } }
